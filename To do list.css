@@ -1,0 +1,32 @@
+html {
+    font-family: 'Indie Flower', cursive;
+
+    background: linear-gradient(135deg, #f3d3fb, #b9f6eb);
+}
+
+h1 {
+    display: flex;
+    font-size: 65px;
+    justify-content: center;
+    
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    margin-right: 120px;
+    border-radius: 100px;
+}
+
+.bb {
+    display: flex;
+    height: 40px;
+    margin-left: 5px;
+}
+.main
+{
+    display: flex;
+    justify-content: center;
+    margin-left: 130px;
+}
