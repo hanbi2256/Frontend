@@ -1,12 +1,13 @@
 html {
-    font-family: 'Indie Flower', cursive;
 
-    background: linear-gradient(135deg, #f3d3fb, #b9f6eb);
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Gaegu', cursive;
+    background: linear-gradient(135deg, #f5ffdb, #ebf6b9);
 }
 
 h1 {
     display: flex;
-    font-size: 65px;
+    font-size: 85px;
     justify-content: center;
     
 }
@@ -15,7 +16,6 @@ h1 {
     display: flex;
     justify-content: center;
     height: 40px;
-    margin-right: 120px;
     border-radius: 100px;
 }
 
@@ -28,5 +28,17 @@ h1 {
 {
     display: flex;
     justify-content: center;
-    margin-left: 130px;
+  
+}
+.to-dos {
+    display: flex;
+    margin-top:55px;
+    font-size: 20px;
+    flex-direction: column;
+}
+
+.test{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
