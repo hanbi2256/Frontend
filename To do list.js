@@ -1,5 +1,4 @@
-
-let inputBox = document.getElementById('TodoListInput');  // 할 일 입력창
+let inputBox = document.getElementById('inputField');  // 할 일 입력창
 let addToDo = document.getElementById('addToDo');      // 버튼
 let toDoList = document.getElementById('toDoList');    // 할 일 리스트창
 
