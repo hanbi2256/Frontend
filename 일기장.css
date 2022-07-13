@@ -72,3 +72,24 @@ h1 {
 {
     display: flex;
 }
+#date
+{
+    display: flex;
+  font-size: 50px;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+
+.line
+{
+    
+    display: flex;
+    margin-left: 200px;
+    
+}
+.time
+{
+    display: flex;
+    margin-left: 580px;
+}
