@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300&family=Gowun+Dodum&family=Jua&display=swap"
         rel="stylesheet">
-
-
-
-
 <body>
 </body>
 <div class="total">
@@ -28,13 +23,10 @@
 <img class="line"src="Vector 461.png">
 <h2><span id="date"></span></h2>
 <script src="일기장.js"></script>
-
 <div class="time" style="text-align: center;">
     <h2><span id="clock" style="color:rgb(0, 0, 0);font-size: 70px;">clock</span></h2>
     <h2><span id="apm" style="color:rgb(0, 0, 0); font-size: 50px;"  >ampm</span></h2>
 </div>
-
-
     <script>
     var Target = document.getElementById("clock");
     var Target_apm = document.getElementById("apm");
@@ -48,14 +40,10 @@
             var AmPm ="PM";
             hours %= 12;
         }
-
         Target.innerText = 
         `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-
         Target_apm.innerText = `${AmPm}`;
-
     }
     clock();
     setInterval(clock, 1000); // 1초마다 실행
 </script>
-</html>
