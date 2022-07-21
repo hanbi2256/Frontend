@@ -8,35 +8,36 @@
 //유저가 1~100 범위 밖에숫자를 입력하면 알려준다. 기회를 깍지 않는다
 //유저가 이미 입력한 숫자를 또 입력하면 알려준다. 기회를 깍지 않느다
 
-let computerNum=0;
-let playButton=document.getElementById("play-button");
-let userInput=document.getElementById("user-input");
-let resultArea=document.getElementById("result-area");
-playButton.addEventListener("click", play);//클릭이벤트시 어떤 함수를 부를 것 인지
+let computerNum = 0;
+let playButton = document.getElementById("play-button");
+let userInput = document.getElementById("user-input");
+let resultArea = document.getElementById("result-area");
+
+playButton.addEventListener("click", play);
+
 function pickRandomNum()//랜덥번호 함수
 {
-    computerNum=Math.floor(Math.random()*100)+1;
-    console.log("정답", computerNum );
+    computerNum = Math.floor(Math.random() * 100) + 1;
+    console.log("정답", computerNum);
 }
-pickRandomNum();
 
-function play()
-{
-    let userValue=userInput.value;
-    if(userValue<computerNum)
-    {
-        resultArea.textContent="up!!";//페이지에 나오게 하는
-        console.log("up!!");
+function play() {
+    let userValue = userInput.value;
+    if (userValue < computerNum) {
+        resultArea.textContent = "up!!"//페이지에 나오게 하는
+
     }
-    else if( userValue>computerNum)
-    {
-        resultArea.textContent="Down!!";
-        console.log("Down!!");
+    else if (userValue > computerNum) {
+        resultArea.textContent = "Down!!"
+
     }
-    else{
-        resultArea.textContent="맞췄습니다!!";
-        console.log("맞추셨습니다!");
+    else {
+        
+        resultArea.textContent = "맞췄습니다!!"
+
     }
-    
+
 }
+
+
 pickRandomNum();
