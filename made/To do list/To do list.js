@@ -1,22 +1,37 @@
-let inputBox = document.getElementById('inputField');  // 할 일 입력창
-let addToDo = document.getElementById('addToDo');      // 버튼
-let toDoList = document.getElementById('toDoList');    // 할 일 리스트창
+//유저가 값을 입력한다
+//+버튼을 클릭하면 , 할일이 추가된다
+//delete 버튼을 누르면 할일이 삭제된다
+//Check 버튼을 누르면 할일이 끝나면서 밑줄이 간다
+//진행중 끝남 탭을 누르면, 언더바가 이동한다
+//끝난탭은, 끝난 아이템만, 진행중탭은 진행중인 아이텝만
+//전체탭을 누르면 다시 전체아이템으로 돌아옴
 
-addToDo.addEventListener('click', function(){    // 버튼에 클릭 이벤트가 발생하면
-    var list = document.createElement('li');     // html 'li' 태그 만들기
-    if (!inputBox.value)            // 할 일 입력창에 내용이 입력되지 않으면 alert 발생
-        alert('내용을 입력해 주세요!');
-    else
+let taskInput=document.getElementById("task-input");
+let addButton=document.getElementById("add-button");
+let taskBoard=document.getElementById("task-board");
+let taskList=[]
+addButton.addEventListener("click", addTASK);
+
+function addTASK()
+{
+    let taskContent=taskInput.value;
+    taskList.push(taskContent);
+    render();
+    
+}
+function render()
+{
+    let resultHTML='';
+    for(let i=0;i<taskList.length;i++)
     {
-        list.innerText = inputBox.value;  // <li>입력된 할 일</li>
-        toDoList.appendChild(list);       // 할 일 리스트창에 자식으로 붙이기
-        inputBox.value= "";               // 할 일 입력창 초기화
+        resultHTML+=` <div class="task">
+        <div>${taskList[i]}</div>
+        <div>
+            <button>Check</button>
+            <button>Dleate</button>
+        </div>
+    </div>`;
     }
 
-    list.addEventListener('click', function(){      // 만들어진 list에 클릭 이벤트가 발생하면 줄 긋기
-        list.style.textDecoration = "line-through";
-    })
-    list.addEventListener('dblclick', function(){   // list에 더블클릭 이벤트가 발생하면 할 일 리스트창에서 지우기
-        toDoList.removeChild(list);
-    })
-})
+    document.getElementById("task-board").innerHTML=resultHTML;
+}
