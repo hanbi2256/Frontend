@@ -14,8 +14,14 @@ addButton.addEventListener("click", addTASK);
 
 function addTASK()
 {
-    let taskContent=taskInput.value;
-    taskList.push(taskContent);
+   
+    let task={
+        id:randomIDGenerate(),
+        taskContent: taskInput.value,
+        isComplete:false,
+    }
+    taskList.push(task);
+    console.log(taskList);
     render();
     
 }
@@ -25,13 +31,21 @@ function render()
     for(let i=0;i<taskList.length;i++)
     {
         resultHTML+=` <div class="task">
-        <div>${taskList[i]}</div>
+        <div>${taskList[i].taskContent}</div>
         <div>
-            <button>Check</button>
+            <button onclick="toogleComplete()">Check</button>
             <button>Dleate</button>
         </div>
     </div>`;
     }
 
     document.getElementById("task-board").innerHTML=resultHTML;
+}
+function toogleComplete()
+{
+    
+}
+function randomIDGenerate()
+{
+    Math.random().toString(36).substr(2, 9);
 }
