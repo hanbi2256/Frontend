@@ -1,49 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="To do list.css">
-
-
+    <link rel="stylesheet" href="style.css">    <!--style.css 파일 참조하기-->
+    <title>To Do List</title>
 </head>
-
 <body>
+    <h1>To Do List</h1>
     <div class="container">
-        <h1>Todo List</h1>
-        <section class="input-area">
-            <input type="text" id="task-input" />
-            <button id="add-button">+</button>
-        </section>
-        <section class="task-area">
-            <div class="task-tabs">
-                <div id="under-line"></div>
-                <div>
-                    모두
-                </div>
-                <div>
-                    진행중
-                </div>
-                <div>
-                    끝남
-                </div>
-            </div>
-            <div id="task-board">
-               
-            </div>
-        </section>
+        <input id="inputField" type="text">   <!--text 입력창(할일 입력창) 만들기-->
+        <button id="addToDo"> + </button>     <!-- + 버튼 만들기 -->
+        <div class="to-dos" id="toDoList"> </div>  <!-- id = inputField에 할일이 입력되고 + 버튼이 눌리면 할일이 나타날 공간 만들기-->
+
     </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
-        crossorigin="anonymous"></script>
-    <script src="To do list.js"></script>
+    <script src="./To do list.js"> </script>   <!--javascript 파일 참조하기-->
 </body>
-
 </html>
