@@ -7,15 +7,34 @@ const getLatestNews = async () => {
     let respones = await fetch(url, { headers: header });//ajx
     let data = await respones.json();
     news = data.articles;
-    console.log(news);
+    
 
     render()
 
 };
-getLatestNews();
+
 
 const render = () => {
     let newsHTML = ''
+   newsHTML= news.map(item=>{
 
-    document.getElementById("").innerHTML=newsHTML
+        return `<div class="row news">
+        <div class="col-lg-4">
+            <img  class="news-img-size"src="${item.media}">
+        </div>
+        <div class="col-lg-8">
+            <h2>${item.title}</h2>
+            <p>
+                ${item.summary}
+            </p>
+            <div>
+              ${item.rights} * ${item.publised_date}
+            </div>
+        </div>
+
+    </div>`
+    }).join("");
+
+    document.getElementById("news-board").innerHTML=newsHTML
 }
+getLatestNews();
