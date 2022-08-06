@@ -9,7 +9,7 @@ const getLatestNews = async () => {
     news = data.articles;
     
 
-    render()
+    render();
 
 };
 
