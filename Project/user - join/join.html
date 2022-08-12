@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+
+<body>
+    <h1>회원가입 페이지</h1>
+    <from method="post" action="/user/join_success" enctype="multipart/from_data">
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <input type="text" name="userid">
+                </td>
+            </tr>
+            <tr>
+                <td>비번</td>
+                <td>
+                    <input type="text" name="userpw">
+                </td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td>
+                    <input type="text" name="username" minlength = "5" maxlength="20">
+
+                </td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+
+                    <input type="radio" name="gender" value="0" checked>남자
+                    <input type="radio" name="gender" value="1" checked>여자
+                </td>
+            </tr>
+            <tr>
+                <td>이미지</td>
+                <td>
+                    <input type="file" name="img">
+                </td>
+            </tr>
+        </table>
+            <input type="submit" value="회원가입하기">
+    </from>
+</body>
+
+</html>
