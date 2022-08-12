@@ -1,8 +1,10 @@
 
-let news = [];
-let menus=document.querySelectorAll(".menus button");
+let news = [];  
+let menus = document.querySelectorAll(".menus button");
+22
 
-menus.forEach(menu=>menu.addEventListener("click", (event)=>getNewsByTopic(event)));
+
+menus.forEach(menu => menu.addEventListener("click", (event) => getNewsByTopic(event)));
 
 const getLatestNews = async () => {
     let url = new URL(` https://api.newscatcherapi.com/v2/latest_headlines?countries=kr&topic=business&page_size=10`);
@@ -10,28 +12,25 @@ const getLatestNews = async () => {
     let respones = await fetch(url, { headers: header });
     let data = await respones.json();
     news = data.articles;
-    
+
 
     render();
 
 };
-const getNewsByTopic=async (event)=>
-{
-    let topic=event.target.textContent.toLowerCase();
-    let url=new URL(
-        `https://api.newscatcherapi.com/v2/latest_headlines?countries=krpage_size=10&topic=${topic}`
-        );
-    let header = new Headers({ 
-        "x-api-key": "kM52f3-AO9LEbk9bwl6T1ztr6DSM19qnxZzZcCwJXoM",
-     });
+const getNewsByTopic = async (event) => {
+    let topic = event.target.textContent.toLowerCase()
+    let url = new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=10topic=${topic}`);
+    let header = new Headers({ 'x-api-key': 'kM52f3-AO9LEbk9bwl6T1ztr6DSM19qnxZzZcCwJXoM' });
     let respones = await fetch(url, { headers: header });
     let data = await respones.json();
-    console.log("토픽뉴스 데이터", data);
+    news = data.articles
+    console.log("데이터", data)
+    render();
 };
 
 const render = () => {
     let newsHTML = "";
-   newsHTML= news.map(item=>{
+    newsHTML = news.map(item => {
 
         return `<div class="row news">
         <div class="col-lg-4">
@@ -50,6 +49,6 @@ const render = () => {
     </div>`
     }).join("");
 
-    document.getElementById("news-board").innerHTML=newsHTML
+    document.getElementById("news-board").innerHTML = newsHTML
 }
 getLatestNews();
