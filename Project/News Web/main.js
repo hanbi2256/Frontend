@@ -17,16 +17,20 @@ const getLatestNews = async () => {
 };
 const getNewsByTopic=async (event)=>
 {
-    let topic=event.target.textContent.toLowerCase()
-    let url=new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=krpage_size=10&topic=${topic}`);
-    let header = new Headers({ 'x-api-key': 'kM52f3-AO9LEbk9bwl6T1ztr6DSM19qnxZzZcCwJXoM' });
+    let topic=event.target.textContent.toLowerCase();
+    let url=new URL(
+        `https://api.newscatcherapi.com/v2/latest_headlines?countries=krpage_size=10&topic=${topic}`
+        );
+    let header = new Headers({ 
+        "x-api-key": "kM52f3-AO9LEbk9bwl6T1ztr6DSM19qnxZzZcCwJXoM",
+     });
     let respones = await fetch(url, { headers: header });
     let data = await respones.json();
-    console.log("dd", data);
+    console.log("토픽뉴스 데이터", data);
 };
 
 const render = () => {
-    let newsHTML = ''
+    let newsHTML = "";
    newsHTML= news.map(item=>{
 
         return `<div class="row news">
