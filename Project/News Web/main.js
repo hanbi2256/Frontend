@@ -1,10 +1,11 @@
 
 let news = [];  
 let menus = document.querySelectorAll(".menus button");
-22
 
 
 menus.forEach(menu => menu.addEventListener("click", (event) => getNewsByTopic(event)));
+
+let searchButton=document.getElementById("search-button");
 
 const getLatestNews = async () => {
     let url = new URL(` https://api.newscatcherapi.com/v2/latest_headlines?countries=kr&topic=business&page_size=10`);
@@ -24,9 +25,20 @@ const getNewsByTopic = async (event) => {
     let respones = await fetch(url, { headers: header });
     let data = await respones.json();
     news = data.articles
-    console.log("데이터", data)
     render();
 };
+
+const getNewsByKeyword=async ()=>
+{
+    let keyword=document.getElementById("search-input").value;
+    let url= new URL(`https://api.newscatcherapi.com/v2/search?q=${keyword}&page_size=10`);
+    let header = new Headers({ 'x-api-key': 'kM52f3-AO9LEbk9bwl6T1ztr6DSM19qnxZzZcCwJXoM' });
+    let respones = await fetch(url, { headers: header });
+    let data = await respones.json();
+    news = data.articles
+    render();
+
+}
 
 const render = () => {
     let newsHTML = "";
@@ -51,4 +63,5 @@ const render = () => {
 
     document.getElementById("news-board").innerHTML = newsHTML
 }
+searchButton.addEventListener("click",getNewsByKeyword);
 getLatestNews();
