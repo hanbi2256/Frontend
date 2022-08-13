@@ -1,43 +1,37 @@
 
-let news = [];  
+let news = [];
 let menus = document.querySelectorAll(".menus button");
 
 
 menus.forEach(menu => menu.addEventListener("click", (event) => getNewsByTopic(event)));
 
-let searchButton=document.getElementById("search-button");
+let searchButton = document.getElementById("search-button");
+let url;
 
 const getLatestNews = async () => {
-    let url = new URL(` https://api.newscatcherapi.com/v2/latest_headlines?countries=kr&topic=business&page_size=10`);
+    url = new URL(` https://api.newscatcherapi.com/v2/latest_headlines?countries=kr&topic=business&page_size=10`);
+    getNews();
+
+};
+
+const getNews = async () => {
     let header = new Headers({ 'x-api-key': 'kM52f3-AO9LEbk9bwl6T1ztr6DSM19qnxZzZcCwJXoM' });
     let respones = await fetch(url, { headers: header });
     let data = await respones.json();
-    news = data.articles;
-
-
+    news = data.articles
     render();
-
 };
+
 const getNewsByTopic = async (event) => {
     let topic = event.target.textContent.toLowerCase()
-    let url = new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=10topic=${topic}`);
-    let header = new Headers({ 'x-api-key': 'kM52f3-AO9LEbk9bwl6T1ztr6DSM19qnxZzZcCwJXoM' });
-    let respones = await fetch(url, { headers: header });
-    let data = await respones.json();
-    news = data.articles
-    render();
+    url = new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=10topic=${topic}`);
+    getNews();
 };
 
-const getNewsByKeyword=async ()=>
-{
-    let keyword=document.getElementById("search-input").value;
-    let url= new URL(`https://api.newscatcherapi.com/v2/search?q=${keyword}&page_size=10`);
-    let header = new Headers({ 'x-api-key': 'kM52f3-AO9LEbk9bwl6T1ztr6DSM19qnxZzZcCwJXoM' });
-    let respones = await fetch(url, { headers: header });
-    let data = await respones.json();
-    news = data.articles
-    render();
-
+const getNewsByKeyword = async () => {
+    let keyword = document.getElementById("search-input").value;
+    url = new URL(`https://api.newscatcherapi.com/v2/search?q=${keyword}&page_size=10`);
+    getNews();
 }
 
 const render = () => {
@@ -63,5 +57,5 @@ const render = () => {
 
     document.getElementById("news-board").innerHTML = newsHTML
 }
-searchButton.addEventListener("click",getNewsByKeyword);
+searchButton.addEventListener("click", getNewsByKeyword);
 getLatestNews();
