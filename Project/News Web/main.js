@@ -29,8 +29,6 @@ const getLatestNews = async () => {
 
 };
 
-
-
 const getNewsByTopic = async (event) => {
     let topic = event.target.textContent.toLowerCase()
     url = new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&page_size=10topic=${topic}`);
