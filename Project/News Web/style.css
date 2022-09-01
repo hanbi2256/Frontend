@@ -1,3 +1,8 @@
+
+    
+body{
+    background-color: #e2f0f9;
+}
 .head-line
 {
     margin-top: 1em;
@@ -13,8 +18,8 @@
     margin-top: 1em;
     display: flex;
     justify-content: center;
-    border-top: 1px solid #ebebeb;
-    border-bottom: 4px double black;
+    border-top: 3px solid #8aaaee;
+    border-bottom: 4px solid #8aaaee;
     flex-wrap: wrap;
 }
 .menus button
@@ -22,10 +27,11 @@
     border: none;
     background: none;
     margin: 5px;
+    color: #47587d;
 }
 
 .menus button:hover{
-    background-color: lightgray;
+    background-color:#e2efff;
 }
 
 .news-img-size
@@ -35,6 +41,35 @@
 }
 .news
 {
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid #8aaaee;
 }
+.title
+{
+    font-weight: bold;
+    font-style: oblique;
+}
+#search-input
+{
+    border: #47587d;
+    border-radius: 2px;
+}
+#search-button
+{
+    border-radius: 2px;
+    border:#47587d
+}
+.head-line
+{
+    display: flex;
+}
+
+.search-box
+{
+    display: flex;
+    height: 30px;
+    margin-left: 1000px;
+    margin-top: 20px;
+    
+}
+
 
