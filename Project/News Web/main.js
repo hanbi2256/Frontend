@@ -66,3 +66,4 @@ const render = () => {
 }
 searchButton.addEventListener("click", getNewsByKeyword);
 getLatestNews();
+
