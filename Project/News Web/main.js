@@ -38,7 +38,7 @@ const getNewsByKeyword = async () => {//키워드 검색
     getNews();
 }
 
-const render = () => {
+const render = () => {//보여지는 뉴스
     let newsHTML = "";
     newsHTML = news.map(item => {
 
@@ -60,6 +60,7 @@ const render = () => {
     document.getElementById("news-board").innerHTML = newsHTML
 }
 
-searchButton.addEventListener("click", getNewsByKeyword);
+searchButton.addEventListener("click", getNewsByKeyword);//searchButton을 눌렀을때 키워드 getNewsByKeyword부르기
+
 getLatestNews();
 
