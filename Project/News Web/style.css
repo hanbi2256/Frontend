@@ -64,5 +64,8 @@ body {
     display: flex;
     height: 30px;
     margin-left: 1000px;
+    margin-top: 30px;
+}
+.title{
     margin-top: 20px;
 }
